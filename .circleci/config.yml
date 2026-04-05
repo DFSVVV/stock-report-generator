@@ -6,8 +6,6 @@ jobs:
       - image: cimg/python:3.12
     steps:
       - checkout
-      - pip install:
-          requirements: requirements.txt
       - run:
           name: Install dependencies
           command: pip install -r requirements.txt
@@ -20,10 +18,6 @@ jobs:
       - run:
           name: Run tests
           command: pytest tests/ -v --cov=src --cov-report=xml
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: coverage.xml
 
 workflows:
   version: 2
